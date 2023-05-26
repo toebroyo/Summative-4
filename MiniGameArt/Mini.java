@@ -1,9 +1,14 @@
 import javax.xml.stream.events.Characters;
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Mini {
-
+    
     public static void main(String[] args) throws Exception {
-        level();
+        String[] tiles = { " ", "_", ">", "(", ".", ")", "/", "+" };
+        int[][] map = new int[6][123]; 
+        MapGerator(map,tiles);
     }
 
     public static int Lives(int pos) {
@@ -15,7 +20,7 @@ public class Mini {
         System.out.print(stuff);
     }
 
-    public static void sprite() {
+    public static void SrtingToInt() {
 
     }
 
@@ -29,20 +34,15 @@ public class Mini {
         prt("" + TextColor + "" + string + "\u001B[37m");
     }
 
-    public static void level() {
-        
-        do {
-            int num = GetRandomInt(1, 1000);
-            String[] tiles = { " ", "_", ">", "(", ".", ")", "/","+" };
-            if (num > 500) { 
-                int[][] map = ground();
-                display(map, tiles);
-            } else {
-                int[][] duck = Characters();
-                display(duck, tiles);
-            }
-        } while (1 != 2);
+    public static void MapGerator(int[][] map, String[] tiles) throws IOException {
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+                int tileCode = map[i][j];
+                prt(tiles[tileCode]);
 
+            }
+            System.out.println();
+        }
     }
 
     public static int GetRandomInt(int low, int high) {
@@ -51,16 +51,12 @@ public class Mini {
         return RandomInt;
     }
 
-  
-
-    public static void display(int[][] map, String[] tiles) {
-        for (int i = 0; i < map.length; i++) {
-            for (int j = 0; j < map[i].length; j++) {
-                int tileCode = map[i][j];
-                prt(tiles[tileCode]);
-                
-            }
-          
+    public static void SpriteMovement(int[][] map, int[][] sprite, boolean IsSprite) {
+      if(IsSprite = true){
+        for (int i = text.length() - 1; i >= 0; i--) {
+            System.out.print(text.charAt(i));
+            Thread.sleep(milli);
         }
+      }
     }
 }
